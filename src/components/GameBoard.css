@@ -1,0 +1,79 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+  width: 90px;
+  height: 120px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  perspective: 1000px; /* Enable 3D effect */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Flip smooth transition */
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back face when flipped */
+  border-radius: 8px;
+}
+
+.card-front {
+  background: linear-gradient(45deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  color: white;
+  z-index: 2; /* Front should be on top */
+}
+
+.card-back {
+ /*  background: linear-gradient(45deg, rgba(29, 53, 87, 1) 0%, rgba(87, 138, 206, 1) 100%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1; /* Back should be behind the front */
+  transform: rotateY(180deg); /* Position the back of the card */
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg); /* Apply rotation to flip the card */
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
