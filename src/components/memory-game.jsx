@@ -23,7 +23,7 @@ const MemoryGame = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   const [tempGridSize, setTempGridSize] = useState(gridSize);
   const [tempBackground, setTempBackground] = useState(background);
